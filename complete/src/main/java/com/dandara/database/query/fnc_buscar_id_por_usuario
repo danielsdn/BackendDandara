@@ -1,0 +1,15 @@
+create or replace function fnc_buscar_id_por_usuario(varchar)
+    returns setof login
+    language sql
+as
+$$
+select *
+from login
+where email = $1
+$$;
+
+select max(data_criacao)
+    from valor_hora ultimo_valor_hora
+    where ultimo_valor_hora.folha = valor_hora.folha
+            and ultimo_valor_hora.contratado = valor_hora.contratado
+)

@@ -1,0 +1,10 @@
+create or replace function fnc_buscar_emergencia(varchar)
+    returns setof emergencia
+    language sql
+as
+$$
+select *
+from emergencia
+where "data" = select max("data") from emergencia;
+$$;
+)
